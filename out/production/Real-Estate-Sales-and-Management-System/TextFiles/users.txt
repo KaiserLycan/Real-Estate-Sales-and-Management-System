@@ -1,0 +1,5 @@
+ID,username,password,type
+1,Kaiser,1234Admin,client
+2,Dinel,1234Admin,admin
+3,Dinel,1234Client,client
+4,Kaiser,1234Client,client

@@ -10,6 +10,7 @@ package User;
  * @author Andrei Samarita
  */
 import RealEstate.Block;
+import RealEstate.ConcreteHouseFactory;
 import RealEstate.HouseFactory;
 import RealEstate.Lot;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class Admin extends User {
     private FileManager userFm;
     private FileManager reFm;
-    private HouseFactory houseFactory;
+    private HouseFactory houseFactory  = new ConcreteHouseFactory();
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<Block> blocks = new ArrayList<>();
 
