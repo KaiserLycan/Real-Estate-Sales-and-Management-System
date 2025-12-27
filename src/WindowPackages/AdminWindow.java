@@ -13,7 +13,6 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 import User.Admin;

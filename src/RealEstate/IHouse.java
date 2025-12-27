@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
  */
 
 public interface IHouse {
-    //Inteface Methods
     public float getHousePrice();
     public String getDescription();
     public ImageIcon getImage();
