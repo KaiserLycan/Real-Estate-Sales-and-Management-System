@@ -8,7 +8,6 @@ public class Lot {
     private User owner;
     private float size;
     private float price;
-    private String description = "No description available";
     private String imageURL;
     private LotType type;
     private House house;
@@ -22,14 +21,12 @@ public class Lot {
 
     public void setPrice(float price) {this.price = price; }
     public void setHouse(House house) { this.house = house; }
-    public void setDescription(String description) { this.description = description; }
     public void setImageURL(String imageURL) { this.imageURL = imageURL; }
     public void setOwner (User user) { this.owner = user; }
 
     public int getLotID() { return lotID; }
     public float getSize() { return size; }
     public float getPrice() { return price; }
-    public String getDescription() { return description; }
     public String getImageURL() { return imageURL; }
     public LotType getLotType() { return type; }
     public House getHouse() { return house; }
