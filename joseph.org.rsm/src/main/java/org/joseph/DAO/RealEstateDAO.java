@@ -5,6 +5,7 @@ import org.joseph.Model.House;
 import org.joseph.Model.Lot;
 import org.joseph.Model.Types.HouseType;
 import org.joseph.Model.Types.LotType;
+import org.joseph.Model.Types.PurchaseStatus;
 import org.joseph.Store.RealEstateStore;
 import org.joseph.Store.UserStore;
 
@@ -23,7 +24,8 @@ public class RealEstateDAO extends AbstractDAO {
             "lotImage",
             "housePrice",
             "houseImage",
-            "houseType"
+            "houseType",
+            "lotStatus"
     };
 
     public RealEstateDAO (String fileName) {
@@ -55,6 +57,7 @@ public class RealEstateDAO extends AbstractDAO {
             float lotPrice = Float.parseFloat(datum[4]);
             float lotSize = Float.parseFloat(datum[5]);
             String lotImage = datum[6];
+            PurchaseStatus status = PurchaseStatus.fromString(datum[10]);
             int ownerId = -1;
             float housePrice = -1;
             String houseImage = null;
@@ -109,6 +112,7 @@ public class RealEstateDAO extends AbstractDAO {
                 datum[4] = String.valueOf(lot.getPrice());
                 datum[5] = String.valueOf(lot.getSize());
                 datum[6] = lot.getImageURL();
+                datum[10] = lot.getStatus().toString();
 
                 if(lot.getOwner() != null) {
                     datum[2] = String.valueOf(lot.getOwner().getID());

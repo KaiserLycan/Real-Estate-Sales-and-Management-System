@@ -1,6 +1,7 @@
 package org.joseph.Model;
 
 import org.joseph.Model.Types.LotType;
+import org.joseph.Model.Types.PurchaseStatus;
 
 public class Lot {
     public static int TOTAL_LOTS = 0;
@@ -11,6 +12,7 @@ public class Lot {
     private String imageURL;
     private final LotType type;
     private House house;
+    private PurchaseStatus status = PurchaseStatus.AVAILABLE;
 
     public Lot(int lotID, float size, LotType type) {
         TOTAL_LOTS++;
@@ -23,6 +25,7 @@ public class Lot {
     public void setHouse(House house) { this.house = house; }
     public void setImageURL(String imageURL) { this.imageURL = imageURL; }
     public void setOwner (User user) { this.owner = user; }
+    public void setStatus (PurchaseStatus status)  {this.status = status;}
 
     public int getLotID() { return lotID; }
     public float getSize() { return size; }
@@ -31,5 +34,6 @@ public class Lot {
     public LotType getLotType() { return type; }
     public House getHouse() { return house; }
     public User getOwner() { return owner; }
+    public PurchaseStatus getStatus() { return status; }
 
 }
