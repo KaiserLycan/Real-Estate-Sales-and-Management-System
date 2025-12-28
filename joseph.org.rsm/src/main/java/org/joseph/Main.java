@@ -1,7 +1,8 @@
 package org.joseph;
 
-import org.joseph.View.AuthWindow;
+import org.joseph.View.AdminFrame;
 
+import javax.swing.*;
 import java.awt.EventQueue;
 
 
@@ -10,7 +11,9 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new AuthWindow().setVisible(true);
+                JFrame frame = new AdminFrame();
+                frame.setVisible(true);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });
     }

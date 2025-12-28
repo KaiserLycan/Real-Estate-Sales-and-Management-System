@@ -3,14 +3,14 @@ package org.joseph.View;
 import javax.swing.*;
 import java.awt.*;
 
-public class AuthWindow extends JFrame {
+public class AuthFrame extends JFrame {
 
     private final JTextField usernameField;
     private final JPasswordField passwordField;
     private final JButton loginButton;
     private final JButton registerButton;
 
-    public AuthWindow() {
+    public AuthFrame() {
         setTitle("Login / Register");
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
