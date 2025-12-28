@@ -5,7 +5,7 @@ public enum LotType {
     INTERIOR_LOT("INTERIOR LOT"),
     OUTER_LOT("OUTER LOT");
 
-    private String label;
+    private final String label;
 
     LotType(String label) {
         this.label = label.toLowerCase();

@@ -4,12 +4,12 @@ import org.joseph.Model.Types.LotType;
 
 public class Lot {
     public static int TOTAL_LOTS = 0;
-    private int lotID;
+    private final int lotID;
     private User owner;
-    private float size;
+    private final  float size;
     private float price;
     private String imageURL;
-    private LotType type;
+    private final LotType type;
     private House house;
 
     public Lot(int lotID, float size, LotType type) {

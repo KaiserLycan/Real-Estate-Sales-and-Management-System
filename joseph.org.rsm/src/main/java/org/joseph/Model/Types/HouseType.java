@@ -7,7 +7,7 @@ public enum HouseType {
     TOWN_HOUSE ("TOWN HOUSE"),
     TWO_STORY ("TWO STORY");
 
-    private String label;
+    private final String label;
 
     HouseType(String label) {
         this.label = label.toLowerCase();
