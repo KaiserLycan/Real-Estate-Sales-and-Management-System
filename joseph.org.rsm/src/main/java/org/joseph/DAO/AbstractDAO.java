@@ -25,7 +25,7 @@ public abstract class AbstractDAO {
 
     public void closeDB() {
         writeData();
-    };
+    }
     protected abstract void readData();
     protected abstract void writeData();
 
