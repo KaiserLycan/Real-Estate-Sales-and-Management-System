@@ -6,18 +6,12 @@ import org.joseph.Model.Types.UserType;
 import java.time.LocalDate;
 
 public class Invoice {
-    User agent;
     User client;
     Lot lot;
     LocalDate date_issued;
     float total_price;
 
-    public Invoice(User agent, User client, Lot lot, LocalDate date_issued) throws Exception {
-        if(agent.getType() != UserType.ADMIN || client.getType() != UserType.CLIENT) {
-            throw new Exception("Invalid user type");
-        }
-
-        this.agent = agent;
+    public Invoice(User client, Lot lot, LocalDate date_issued) {
         this.client = client;
         this.date_issued = date_issued;
         this.lot = lot;
