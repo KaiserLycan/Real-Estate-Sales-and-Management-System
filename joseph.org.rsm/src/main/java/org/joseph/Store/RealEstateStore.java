@@ -33,7 +33,6 @@ public class RealEstateStore {
             optLot.ifPresent(l -> {
                 l.setPrice(lot.getPrice());
                 l.setHouse(lot.getHouse());
-                l.setDescription(lot.getDescription());
                 l.setImageURL(lot.getImageURL());
             });
         });
