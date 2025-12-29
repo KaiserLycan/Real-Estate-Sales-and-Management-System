@@ -1,13 +1,9 @@
 package org.joseph.View;
 
 import org.joseph.Control.AdminController;
-import org.joseph.DAO.RealEstateDAO;
 
-import javax.smartcardio.Card;
 import javax.swing.*;
 import java.awt.*;
-import java.io.InputStream;
-import java.util.Objects;
 
 public class AdminFrame extends JFrame {
 

@@ -44,4 +44,5 @@ public class RealEstateView extends JPanel {
     }
 
     public JTable getTable() { return  table; }
+    public DefaultTableModel getModel() { return model; }
 }
