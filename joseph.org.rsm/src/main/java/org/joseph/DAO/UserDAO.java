@@ -31,8 +31,12 @@ public class UserDAO extends AbstractDAO {
         List<User> users = new ArrayList<>();
 
         try (Scanner reader = new Scanner(database)) {
-            reader.nextLine();
-            while(reader.hasNext()) {
+
+            if(reader.hasNextLine()) {
+                reader.nextLine();
+            }
+
+            while(reader.hasNextLine()) {
                 data.add(reader.nextLine().split(","));
             }
         }
@@ -61,12 +65,12 @@ public class UserDAO extends AbstractDAO {
             users.add(user);
         }
 
-        UserStore.setUser(users);
+        UserStore.getInstance().setUser(users);
     }
 
     @Override
     protected void writeData() {
-        List<User> users = UserStore.getUser();
+        List<User> users = UserStore.getInstance().getUser();
         List<String[]> data = new ArrayList<>();
 
         for(User user: users) {

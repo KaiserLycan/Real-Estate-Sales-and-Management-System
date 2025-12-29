@@ -1,10 +1,13 @@
 package org.joseph.View;
 
 import org.joseph.Control.AdminController;
+import org.joseph.DAO.RealEstateDAO;
 
 import javax.smartcardio.Card;
 import javax.swing.*;
 import java.awt.*;
+import java.io.InputStream;
+import java.util.Objects;
 
 public class AdminFrame extends JFrame {
 
@@ -12,6 +15,7 @@ public class AdminFrame extends JFrame {
     private final JButton usersBtn = new JButton("Manage Users");
     private final JButton invoiceBtn = new JButton("Manage Invoice");
     private final JButton logout = new JButton("Logout");
+
 
     private final RealEstateView realEstateView = new RealEstateView();
     private final UsersView usersView = new UsersView();

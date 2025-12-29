@@ -1,32 +1,33 @@
-package org.joseph.DAO;
+    package org.joseph.DAO;
 
-import java.io.File;
-import java.io.IOException;
+    import java.io.File;
+    import java.io.IOException;
 
-public abstract class AbstractDAO {
-    protected final File database;
+    public abstract class AbstractDAO {
+        protected final File database;
 
-    protected AbstractDAO(String fileName) {
-        database = new File(fileName);
-        try {
-            if(database.createNewFile()) {
-                System.out.println("Cannot find file: " + database.getPath());
-                System.out.println("Created file: " + database.getPath());
+        protected AbstractDAO(String fileName) {
+            database = new File("Data", fileName);
+
+            try {
+                if(!database.exists()) {
+                    database.getParentFile().mkdirs();
+                    database.createNewFile();
+                    System.out.println("Created database: " + database.getPath());
+                }
+                System.out.println("Successfully connected to " + database.getPath() + " Database");
+            }
+            catch (IOException ex) {
+                throw new RuntimeException("Cannot connect to " + database.getPath() + " Database");
             }
 
-            System.out.println("Successfully Connected to RealEstateDB");
-        }
-        catch (IOException ex) {
-            System.out.println("Cannot connect to RealEstateDB");
+            readData();
         }
 
-        readData();
-    }
+        public void closeDB() {
+            writeData();
+        }
+        protected abstract void readData();
+        protected abstract void writeData();
 
-    public void closeDB() {
-        writeData();
     }
-    protected abstract void readData();
-    protected abstract void writeData();
-
-}

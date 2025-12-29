@@ -32,19 +32,26 @@ public class RealEstateDAO extends AbstractDAO {
         super(fileName);
     }
 
+    public String[] getColumns() { return columns; }
+
 
     protected void  readData() {
         List<String[]> data = new ArrayList<>();
         List<Block> blocks = new ArrayList<>();
 
         try (Scanner reader = new Scanner(database)) {
-            reader.nextLine();
-            while(reader.hasNext()) {
+
+            if(reader.hasNextLine()) {
+                reader.nextLine();
+            }
+
+            while(reader.hasNextLine()) {
                 data.add(reader.nextLine().split(","));
             }
         }
         catch (IOException ex) {
             System.out.println("Error: Cannot read file.");
+            ex.printStackTrace();
         }
 
         if(data.isEmpty())  return;
@@ -63,11 +70,14 @@ public class RealEstateDAO extends AbstractDAO {
             String houseImage = null;
             HouseType houseType = null;
 
-            if(!datum[2].isEmpty()) {
+            if(!datum[2].isEmpty() && !datum[2].isBlank()) {
                 ownerId = Integer.parseInt(datum[2]);
             }
 
-            if(!datum[7].isEmpty() && !datum[8].isEmpty() && !datum[9].isEmpty()) {
+            if(
+                !datum[7].isEmpty() && !datum[7].isBlank() &&
+                !datum[8].isEmpty() && !datum[9].isEmpty()
+            ) {
                 housePrice = Float.parseFloat(datum[7]);
                 houseImage = datum[8];
                 houseType = HouseType.fromString(datum[9]);
@@ -77,7 +87,7 @@ public class RealEstateDAO extends AbstractDAO {
             Block block = blocks.stream().filter(b -> b.getBlockID() == blockId).findFirst().orElse(new Block(blockId));
             if(!blocks.contains(block)) blocks.add(block);
             Lot lot = new Lot(lotId, lotSize, lotType);
-            lot.setOwner(UserStore.getUser(ownerId));
+            lot.setOwner(UserStore.getInstance().getUser(ownerId));
             lot.setPrice(lotPrice);
             lot.setImageURL(lotImage);
             if(houseType != null && housePrice >= 0) {
@@ -89,11 +99,11 @@ public class RealEstateDAO extends AbstractDAO {
             block.getLots().add(lot);
         }
 
-        RealEstateStore.setBlock(blocks);
+        RealEstateStore.getInstance().setBlock(blocks);
     }
 
     protected void writeData() {
-        List<Block> blocks = RealEstateStore.getBlock();
+        List<Block> blocks = RealEstateStore.getInstance().getBlock();
         List<String[]> data = new ArrayList<>();
 
         for(Block block : blocks) {
@@ -108,7 +118,7 @@ public class RealEstateDAO extends AbstractDAO {
             for (Lot lot: block.getLots()) {
                 datum[0] = String.valueOf(block.getBlockID());
                 datum[1] = String.valueOf(lot.getLotID());
-                datum[3] = lot.getLotType().toString();
+                datum[3] = lot.getLotType() != null ? lot.getLotType().toString() : " ";
                 datum[4] = String.valueOf(lot.getPrice());
                 datum[5] = String.valueOf(lot.getSize());
                 datum[6] = lot.getImageURL();
@@ -145,6 +155,7 @@ public class RealEstateDAO extends AbstractDAO {
             }
         } catch (IOException e) {
             System.out.println("Error cannot write data to " + database.getPath());
+            e.printStackTrace();
         }
     }
 }

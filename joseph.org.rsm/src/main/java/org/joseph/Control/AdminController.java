@@ -1,9 +1,6 @@
 package org.joseph.Control;
 
 import org.joseph.View.AdminFrame;
-import org.joseph.View.InvoiceView;
-import org.joseph.View.RealEstateView;
-import org.joseph.View.UsersView;
 
 public class AdminController {
 
