@@ -28,6 +28,13 @@ public class RealEstateStore {
     public List<Block> getBlock() { return blockStore; }
 
     public Block getBlock(int blockId) { return blockStore.stream().filter(b -> b.getBlockID() == blockId).findFirst().orElse(null);}
+    public Block getBlock(Lot lot) {
+        for(Block block : blockStore) {
+            Lot containedLot = block.getLots().stream().filter(l -> l.getLotID() == lot.getLotID()).findFirst().orElse(null);
+            if(containedLot != null) return block;
+        }
+        return null;
+    }
     public Lot getLot(int blockId, int lotId) {
         Block block = blockStore.stream().filter(b -> b.getBlockID() == blockId).findFirst().orElse(null);
         if(block == null) return null;
