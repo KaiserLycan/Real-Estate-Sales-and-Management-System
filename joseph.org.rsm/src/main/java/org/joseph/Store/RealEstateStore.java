@@ -27,6 +27,13 @@ public class RealEstateStore {
     public void setBlock(List<Block> blocks) { blockStore = blocks; }
     public List<Block> getBlock() { return blockStore; }
 
+    public Block getBlock(int blockId) { return blockStore.stream().filter(b -> b.getBlockID() == blockId).findFirst().orElse(null);}
+    public Lot getLot(int blockId, int lotId) {
+        Block block = blockStore.stream().filter(b -> b.getBlockID() == blockId).findFirst().orElse(null);
+        if(block == null) return null;
+        return block.getLots().stream().filter(l -> l.getLotID() == lotId).findFirst().orElse(null);
+    }
+
     public void addBlock(Block newBlock) { blockStore.add(newBlock); }
     public void deleteBlock(Block block) { blockStore.removeIf( b -> b.getBlockID() == block.getBlockID());}
 
