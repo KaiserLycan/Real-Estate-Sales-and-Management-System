@@ -1,9 +1,9 @@
 package org.joseph;
 
+import org.joseph.DAO.AbstractDAO;
+import org.joseph.DAO.InvoiceDAO;
 import org.joseph.DAO.RealEstateDAO;
 import org.joseph.DAO.UserDAO;
-import org.joseph.Store.RealEstateStore;
-import org.joseph.Store.UserStore;
 import org.joseph.View.AdminFrame;
 
 import javax.swing.*;
@@ -14,8 +14,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-        RealEstateDAO rDao = new RealEstateDAO("real_estate.csv");
-        UserDAO uDao = new UserDAO("user.csv");
+        AbstractDAO uDao = new UserDAO("user.csv");
+        AbstractDAO rDao = new RealEstateDAO("real_estate.csv");
+        AbstractDAO vDao = new InvoiceDAO("invoice.csv");
 
 
 
@@ -30,8 +31,9 @@ public class Main {
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("App is exiting... saving data.");
-            rDao.closeDB();
             uDao.closeDB();
+            rDao.closeDB();
+            vDao.closeDB();
         }));
     }
 
