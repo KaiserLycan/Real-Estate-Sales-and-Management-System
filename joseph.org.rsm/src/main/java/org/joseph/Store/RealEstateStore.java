@@ -48,14 +48,8 @@ public class RealEstateStore {
     }
 
     public void udpateLot(Block block, Lot lot) {
-        Optional<Block> optBlock = blockStore.stream().filter(b -> b.getBlockID() == block.getBlockID()).findFirst();
-        optBlock.ifPresent(b -> {
-            Optional<Lot> optLot = b.getLots().stream().filter(l -> l.getLotID() == lot.getLotID()).findFirst();
-            optLot.ifPresent(l -> {
-                l.setPrice(lot.getPrice());
-                l.setHouse(lot.getHouse());
-                l.setImageURL(lot.getImageURL());
-            });
-        });
+        Block updatedBlock = blockStore.stream().filter(b -> b.getBlockID() == block.getBlockID()).findFirst().orElse(null);
+        if(updatedBlock == null) return;
+        updatedBlock.getLots().replaceAll(l -> l.getLotID() != lot.getLotID() ? l : lot );
     }
 }
