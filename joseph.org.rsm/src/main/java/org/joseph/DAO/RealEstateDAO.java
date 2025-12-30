@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class RealEstateDAO extends AbstractDAO {
-    private final String[] columns = new String[] {
+    private final String[] columns = {
             "blockId",
             "lotId",
             "ownerID",
@@ -31,9 +31,6 @@ public class RealEstateDAO extends AbstractDAO {
     public RealEstateDAO (String fileName) {
         super(fileName);
     }
-
-    public String[] getColumns() { return columns; }
-
 
     protected void  readData() {
         List<String[]> data = new ArrayList<>();
