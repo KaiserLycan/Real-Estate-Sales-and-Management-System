@@ -1,11 +1,9 @@
 package org.joseph.View;
 
 import org.joseph.Store.InvoiceStore;
-import org.joseph.Store.RealEstateStore;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 
 public class InvoiceView extends JPanel {
 

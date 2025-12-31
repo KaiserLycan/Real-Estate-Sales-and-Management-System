@@ -87,6 +87,7 @@ public class RealEstateDAO extends AbstractDAO {
             lot.setOwner(UserStore.getInstance().getUser(ownerId));
             lot.setPrice(lotPrice);
             lot.setImageURL(lotImage);
+            lot.setStatus(status);
             if(houseType != null && housePrice >= 0) {
                 House house = new House(houseType);
                 house.setFixedPrice(housePrice);
