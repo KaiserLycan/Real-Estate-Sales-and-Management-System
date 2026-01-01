@@ -25,6 +25,7 @@ public class InvoiceStore {
     public void setInvoices(List<Invoice> invoiceStore) { this.invoiceStore = invoiceStore; }
     public List<Invoice> getInvoice() { return invoiceStore; }
     public Invoice getInvoice(int id) { return invoiceStore.stream().filter(i -> i.getId() == id).findFirst().orElse(null);}
+    public void addInvoice(Invoice invoice) { invoiceStore.add(invoice); }
     public void deleteInvoice(int id) { invoiceStore.removeIf(i -> i.getId() == id); }
     public void updateInvoice(Invoice invoice) {
         Invoice updateInvoice = invoiceStore.stream().filter(i -> i.getId() == invoice.getId()).findFirst().orElse(null);
