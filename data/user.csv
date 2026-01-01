@@ -1,0 +1,6 @@
+userId,username,password,first_name,last_name,type
+1001,jdoe,password123,John,Doe,admin
+1002,asmith,qwerty456,Alice,Smith,client
+1003,bjones,abc123,Bob,Jones,client
+1004,cmiller,pass789,Carol,Miller,client
+1005,djohnson,123456,David,Johnson,client

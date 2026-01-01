@@ -1,0 +1,4 @@
+blockId,lotId,ownerID,lotType,lotPrice,lotSize,lotImage,housePrice,houseImage,houseType,lotStatus
+1,102, ,interior lot,55000.0,130.0,lot2.jpg,160000.0,house2.jpg,duplex,sold
+2,202, ,corner lot,60000.0,125.0,lot4.jpg, , , ,sold
+3,301, ,interior lot,58000.0,128.0,lot5.jpg, , , ,sold
