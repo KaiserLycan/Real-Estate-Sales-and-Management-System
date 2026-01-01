@@ -1,6 +1,8 @@
 package org.joseph.View;
 
-public class ClientFrame {
+import javax.swing.*;
+
+public class ClientFrame extends JFrame {
     // Search for real estate and make purchase.
 
 }

@@ -4,15 +4,15 @@ import org.joseph.Model.Types.UserType;
 
 public class User {
     public static int TOTAL_USERS = 0;
-    private int id = 0;
+    private int id;
     private String username;
     private String password;
     private String fName;
     private String lName;
     private UserType type;
 
-    public User(int id) {
-        TOTAL_USERS++;
+    public User(int id, boolean increaseUser) {
+        if(increaseUser) TOTAL_USERS++;
         this.id = id;
     }
 

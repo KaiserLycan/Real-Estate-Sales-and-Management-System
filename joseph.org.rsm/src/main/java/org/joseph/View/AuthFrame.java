@@ -1,5 +1,7 @@
 package org.joseph.View;
 
+import org.joseph.Controller.AuthController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,7 +10,7 @@ public class AuthFrame extends JFrame {
     private final JTextField usernameField;
     private final JPasswordField passwordField;
     private final JButton loginButton;
-    private final JButton registerButton;
+    private final AuthController controller;
 
     public AuthFrame() {
         setTitle("Login / Register");
@@ -38,12 +40,13 @@ public class AuthFrame extends JFrame {
 
         JPanel buttonPanel = new JPanel();
         loginButton = new JButton("Login");
-        registerButton = new JButton("Register");
         buttonPanel.add(loginButton);
-        buttonPanel.add(registerButton);
         panel.add(buttonPanel);
 
         panel.add(Box.createVerticalStrut(20));
+
+
+        controller = new AuthController(this);
     }
 
     public JTextField getUsernameField() {
@@ -58,7 +61,9 @@ public class AuthFrame extends JFrame {
         return loginButton;
     }
 
-    public JButton getRegisterButton() {
-        return registerButton;
+
+    public void popMessage(String message, int type) {
+        if(type == JOptionPane.ERROR_MESSAGE) JOptionPane.showMessageDialog(this, message, "Something went wrong!", JOptionPane.ERROR_MESSAGE);
+        else if(type == JOptionPane.PLAIN_MESSAGE) JOptionPane.showMessageDialog(this, message, "Login Success", JOptionPane.PLAIN_MESSAGE);
     }
 }

@@ -5,6 +5,7 @@ import org.joseph.DAO.InvoiceDAO;
 import org.joseph.DAO.RealEstateDAO;
 import org.joseph.DAO.UserDAO;
 import org.joseph.View.AdminFrame;
+import org.joseph.View.AuthFrame;
 
 import javax.swing.*;
 import java.awt.EventQueue;
@@ -23,9 +24,8 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JFrame frame = new AdminFrame();
+                JFrame frame = new AuthFrame();
                 frame.setVisible(true);
-                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });
 

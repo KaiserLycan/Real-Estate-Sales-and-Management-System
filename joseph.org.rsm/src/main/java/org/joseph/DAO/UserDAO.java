@@ -55,7 +55,7 @@ public class UserDAO extends AbstractDAO {
             String lName = datum[4];
             UserType type = UserType.fromString(datum[5]);
 
-            User user = new User(userId);
+            User user = new User(userId, true);
             user.setUsername(username);
             user.setPassword(password);
             user.setFName(fName);
