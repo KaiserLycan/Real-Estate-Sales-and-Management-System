@@ -1,10 +1,14 @@
-package org.joseph.Control;
+package org.joseph.Controller;
 
 import org.joseph.View.AdminFrame;
 
 public class AdminController {
 
     public AdminController(AdminFrame frame) {
+        attachActionListeners(frame);
+    }
+
+    private void attachActionListeners(AdminFrame frame) {
         frame.getRealEstateBtn().addActionListener(e -> {
             frame.getCardLayout().show(frame.getMainPanel(), "Real Estate");
         });

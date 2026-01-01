@@ -1,6 +1,5 @@
 package org.joseph.Store;
 
-import org.joseph.DAO.RealEstateDAO;
 import org.joseph.Model.Block;
 import org.joseph.Model.Lot;
 
@@ -54,7 +53,7 @@ public class RealEstateStore {
         optBlock.ifPresent(b -> b.getLots().removeIf(l -> l.getLotID() == lot.getLotID()));
     }
 
-    public void udpateLot(Block block, Lot lot) {
+    public void updateLot(Block block, Lot lot) {
         Block updatedBlock = blockStore.stream().filter(b -> b.getBlockID() == block.getBlockID()).findFirst().orElse(null);
         if(updatedBlock == null) return;
         updatedBlock.getLots().replaceAll(l -> l.getLotID() != lot.getLotID() ? l : lot );

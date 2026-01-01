@@ -1,6 +1,6 @@
 package org.joseph.View;
 
-import org.joseph.Control.AdminController;
+import org.joseph.Controller.AdminController;
 
 import javax.swing.*;
 import java.awt.*;
