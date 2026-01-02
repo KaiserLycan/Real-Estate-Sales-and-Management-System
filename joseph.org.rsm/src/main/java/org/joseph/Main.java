@@ -1,5 +1,6 @@
 package org.joseph;
 
+import org.joseph.Component.CreateRealEstateModal;
 import org.joseph.DAO.AbstractDAO;
 import org.joseph.DAO.InvoiceDAO;
 import org.joseph.DAO.RealEstateDAO;
@@ -20,12 +21,13 @@ public class Main {
         AbstractDAO vDao = new InvoiceDAO("invoice.csv");
 
 
-
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 JFrame frame = new AuthFrame();
                 frame.setVisible(true);
+                CreateRealEstateModal modal = new CreateRealEstateModal(frame);
+                modal.setVisible(true);
             }
         });
 
