@@ -1,6 +1,7 @@
 package org.joseph.View;
 
 import org.joseph.Controller.AdminController;
+import org.joseph.Controller.RealEstateController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,8 @@ public class AdminFrame extends JFrame {
     private final RealEstateView realEstateView = new RealEstateView();
     private final UsersView usersView = new UsersView();
     private final InvoiceView invoiceView = new InvoiceView();
+
+    private final RealEstateController realEstateController = new RealEstateController(realEstateView);
 
     private final CardLayout cardLayout = new CardLayout();
     private final JPanel mainPanel = new JPanel(cardLayout);

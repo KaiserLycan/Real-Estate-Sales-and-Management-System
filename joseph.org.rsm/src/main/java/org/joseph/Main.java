@@ -26,8 +26,6 @@ public class Main {
             public void run() {
                 JFrame frame = new AuthFrame();
                 frame.setVisible(true);
-                CreateRealEstateModal modal = new CreateRealEstateModal(frame);
-                modal.setVisible(true);
             }
         });
 

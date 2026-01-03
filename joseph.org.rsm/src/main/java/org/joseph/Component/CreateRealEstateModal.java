@@ -1,5 +1,6 @@
 package org.joseph.Component;
 
+import org.joseph.Model.Types.HouseType;
 import org.joseph.Model.Types.LotType;
 
 import javax.swing.*;
@@ -13,11 +14,11 @@ public class CreateRealEstateModal extends JDialog {
     private final JTextField lotSize;
     private final JTextField lotPrice;
     private final JComboBox<LotType> lotType;
-    private final JButton addHouse;
+    private final JComboBox<HouseType> addHouse;
     private final JButton create;
 
 
-    public CreateRealEstateModal (JFrame frame) {
+    public CreateRealEstateModal () {
         setTitle("Add Real Estate");
         setSize(new Dimension(500, 700));
 
@@ -42,7 +43,8 @@ public class CreateRealEstateModal extends JDialog {
         lotPrice = new JTextField("Lot Price:");
         lotType = new JComboBox<>(LotType.values());
         lotType.setName("Select Lot Type");
-        addHouse = new JButton("Build a House");
+        addHouse = new JComboBox<>(HouseType.values());
+        addHouse.setName("Select House:");
         create = new JButton("Add Real Estate");
 
         List<JComponent> components = new ArrayList<>();
@@ -105,7 +107,7 @@ public class CreateRealEstateModal extends JDialog {
         return lotType;
     }
 
-    public JButton getAddHouse() {
+    public JComboBox<HouseType> getAddHouse() {
         return addHouse;
     }
 
